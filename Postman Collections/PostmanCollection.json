@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "d2a5cf62-ea3e-4d18-9742-c59d3d622250",
+		"name": "Check user record created",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e393daf1-c9f9-40d6-a8b3-7300d007c575",
+						"exec": [
+							"const ResponseJson= pm.response.json();\r",
+							"const UserId= ResponseJson['id']\r",
+							"pm.environment.set('ID',UserId)\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "44574002-bde1-4a94-ae98-aeca9ab5b9c1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Zakaria\",\r\n    \"job\": \"QA\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://reqres.in/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrive user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e393daf1-c9f9-40d6-a8b3-7300d007c575",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Response Status: OK\", () =>  {\r",
+							"        pm.response.to.have.status(\"OK\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check The user created\",()=>{\r",
+							"   const ResponseJson = pm.response.json()\r",
+							"   const UserName = ResponseJson[\"name\"]\r",
+							"   pm.expect(UserName).to.eql(\"Zakaria\")\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b6749d18-b80d-4dad-a605-e408b1988ba2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/users/273"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5b5d149e-bfb9-460a-bfbb-5e995d852ae0",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4b2a5400-05de-4180-afd9-23e7edb03bc3",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ID",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
