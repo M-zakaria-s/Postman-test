@@ -62,7 +62,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check Response Status: OK\", () =>  {\r",
+							"pm.test(\"Check Response Status-CheckGithubUpdated1: OK\", () =>  {\r",
 							"        pm.response.to.have.status(\"OK\");\r",
 							"\r",
 							"});\r",
