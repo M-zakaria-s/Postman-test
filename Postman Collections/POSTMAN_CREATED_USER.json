@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "0a2aa17c-b77f-4260-ab86-8ef79ec786e8",
+		"name": "created user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrive user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e393daf1-c9f9-40d6-a8b3-7300d007c575",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Response Status: OK\", () =>  {\r",
+							"        pm.response.to.have.status(\"OK\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check for Employee ID '1' at the first position in the response.\", () =>  {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    const employees = jsonData.data;\r",
+							"    pm.expect(employees[0].id).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Pageone have only 6 \", () =>  {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    const employees = jsonData.data;\r",
+							"    pm.expect(employees.length).to.eql(6);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "ee66b566-2b7c-4fb0-85f5-d5d644d6bf09",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
