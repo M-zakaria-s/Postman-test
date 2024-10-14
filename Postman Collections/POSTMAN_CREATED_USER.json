@@ -17,7 +17,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check Response Status: OK\", () =>  {\r",
+							"pm.test(\"Check Response Status: OK- Hello From POSTMAnN, () =>  {\r",
 							"        pm.response.to.have.status(\"OK\");\r",
 							"\r",
 							"});\r",
